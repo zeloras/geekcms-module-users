@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Users\Models;
+namespace GeekCms\Users\Models;
 
 use App\Models\MainModel;
 use Illuminate\Auth\Authenticatable;

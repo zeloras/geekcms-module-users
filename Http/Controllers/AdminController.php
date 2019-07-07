@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Users\Http\Controllers;
+namespace GeekCms\Users\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Users\Models\Users;
+use GeekCms\Users\Models\Users;
 
 class AdminController extends Controller
 {
