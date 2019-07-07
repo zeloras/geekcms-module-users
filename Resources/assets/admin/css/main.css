@@ -1,0 +1,3 @@
+.user-permissions__change-state-all.is_checked .font-icon:before {
+    content: "\36";
+}
