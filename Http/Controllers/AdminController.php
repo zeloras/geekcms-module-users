@@ -114,7 +114,7 @@ class AdminController extends Controller
         $user_top = $user->fill($data);
         $user_top->validate($data);
         $user_permissions = array_keys($user_permissions);
-        $user_permissions[] = 'admin_access';
+        $user_permissions[] = \Gcms::MAIN_ADMIN_PERMISSION;
 
         // pass
         if (!\count($user_top->errors)) {
