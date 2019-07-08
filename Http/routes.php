@@ -2,7 +2,7 @@
 
 Route::group(['middleware' => ['web', 'permission:' . \Gcms::MAIN_ADMIN_PERMISSION], 'prefix' => getAdminPrefix('users')], function () {
     Route::group(['middleware' => ['permission:modules_users_admin_list']], function () {
-        Route::any('/', 'GeekCms\Users\Http\Controllers\AdminController@index')->name('admin.users');
+        Route::any(DIRECTORY_SEPARATOR, 'GeekCms\Users\Http\Controllers\AdminController@index')->name('admin.users');
     });
 
     Route::group(['middleware' => ['permission:modules_users_admin_delete']], function () {
