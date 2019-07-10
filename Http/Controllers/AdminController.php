@@ -3,16 +3,23 @@
 namespace GeekCms\Users\Http\Controllers;
 
 use App\Models\User;
+use Exception;
+use Gcms;
+use GeekCms\Users\Models\Users;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use GeekCms\Users\Models\Users;
+use Illuminate\View\View;
+use Packages;
+use function count;
 
 class AdminController extends Controller
 {
     /**
      * Method for show users list table.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function index()
     {
@@ -28,14 +35,14 @@ class AdminController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function deleteAll(Request $request)
     {
         $get_users = $request->get('items', '');
         $get_users = explode(',', $get_users);
 
-        if (\count($get_users)) {
+        if (count($get_users)) {
             $find_user = User::whereIn('id', $get_users);
             if ($find_user->count()) {
                 foreach ($find_user->get() as $user) {
@@ -53,9 +60,9 @@ class AdminController extends Controller
      *
      * @param User $user
      *
-     * @throws \Exception
+     * @return RedirectResponse
+     * @throws Exception
      *
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function delete(User $user)
     {
@@ -70,12 +77,12 @@ class AdminController extends Controller
      *
      * @param User $user
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function form(User $user)
     {
         $template = (empty($user->id)) ? 'users::create' : 'users::edit';
-        $permissions = \Packages::getPermissionsList();
+        $permissions = Packages::getPermissionsList();
 
         return view($template, [
             'user' => $user,
@@ -87,12 +94,12 @@ class AdminController extends Controller
     /**
      * Method for save users changes or create new.
      *
-     * @param Users   $user
+     * @param Users $user
      * @param Request $request
      *
-     * @throws \Exception
+     * @return RedirectResponse
+     * @throws Exception
      *
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function save(Users $user, Request $request)
     {
@@ -114,14 +121,14 @@ class AdminController extends Controller
         $user_top = $user->fill($data);
         $user_top->validate($data);
         $user_permissions = array_keys($user_permissions);
-        $user_permissions[] = \Gcms::MAIN_ADMIN_PERMISSION;
+        $user_permissions[] = Gcms::MAIN_ADMIN_PERMISSION;
 
         // pass
-        if (!\count($user_top->errors)) {
+        if (!count($user_top->errors)) {
             $user_top->save();
 
             if (!$user_top || empty($user_top->id)) {
-                throw new \Exception('wtf is going on');
+                throw new Exception('wtf is going on');
             }
 
             $user = User::findOrFail($user_top->id);

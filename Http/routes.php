@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['web', 'permission:' . \Gcms::MAIN_ADMIN_PERMISSION], 'prefix' => getAdminPrefix('users')], function () {
+Route::group(['middleware' => ['web', 'permission:' . Gcms::MAIN_ADMIN_PERMISSION], 'prefix' => getAdminPrefix('users')], function () {
     Route::group(['middleware' => ['permission:modules_users_admin_list']], function () {
         Route::any(DIRECTORY_SEPARATOR, 'GeekCms\Users\Http\Controllers\AdminController@index')->name('admin.users');
     });
