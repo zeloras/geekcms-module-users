@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
-use Packages;
+use PackageSystem;
 use function count;
 
 class AdminController extends Controller
@@ -82,7 +82,7 @@ class AdminController extends Controller
     public function form(User $user)
     {
         $template = (empty($user->id)) ? 'users::create' : 'users::edit';
-        $permissions = Packages::getPermissionsList();
+        $permissions = PackageSystem::getPermissionsList();
 
         return view($template, [
             'user' => $user,
