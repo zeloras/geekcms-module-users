@@ -69,7 +69,7 @@
                                 </a>
                                 <a href="{{ route('admin.users.delete', ['user' => $element->id]) }}"
                                    data-toggle="tooltip" data-placement="left"
-                                   data-original-title="{{ Translate::get('module_module_pages::admin/main.list.action_delete') }}"
+                                   data-original-title="{{ Translate::get('module_pages::admin/main.list.action_delete') }}"
                                    class="btn-link btn btn-success-outline btn-sm"
                                    data-delete="{{ Translate::get('module_users::admin/main.action_delete_confirm') }}">
                                     <i class="fa fa-trash"></i>
