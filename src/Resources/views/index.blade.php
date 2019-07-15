@@ -1,25 +1,25 @@
 @extends('admin.layouts.main')
 
-@section('title',  Translate::get('users::admin/sidenav.name') )
+@section('title',  Translate::get('module_users::admin/sidenav.name') )
 
 @section('content')
     <section class="box-typical container pb-3">
         <header class="box-typical-header">
             <div class="tbl-row">
                 <div class="tbl-cell tbl-cell-title">
-                    <h3>{{ Translate::get('users::admin/sidenav.name') }}</h3>
+                    <h3>{{ Translate::get('module_users::admin/sidenav.name') }}</h3>
                 </div>
                 <div class="tbl-cell tbl-cell-action-bordered">
                     <a href="{{ route('admin.users.create') }}"
                        data-toggle="tooltip" data-placement="left"
-                       data-original-title="{{ Translate::get('users::admin/main.create_user') }}" class="action-btn">
+                       data-original-title="{{ Translate::get('module_users::admin/main.create_user') }}" class="action-btn">
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
                 <div class="tbl-cell tbl-cell-action-bordered">
                     <button type="button" data-token="{!! csrf_token() !!}"
                             data-toggle="tooltip" data-placement="left"
-                            data-original-title="{{ Translate::get('users::admin/main.delete_selected') }}"
+                            data-original-title="{{ Translate::get('module_users::admin/main.delete_selected') }}"
                             data-text="Are you sure?" data-inputs=".delete-item-check:checked"
                             data-action="{{ route('admin.users.delete.all') }}"
                             class="action-btn delete-all">
@@ -34,9 +34,9 @@
                     <thead>
                     <tr>
                         <th class="table-check"></th>
-                        <th class="table-title">{{ Translate::get('users::admin/main.name') }}</th>
-                        <th>{{ Translate::get('users::admin/main.email') }}</th>
-                        <th>{{ Translate::get('users::admin/main.created_at') }}</th>
+                        <th class="table-title">{{ Translate::get('module_users::admin/main.name') }}</th>
+                        <th>{{ Translate::get('module_users::admin/main.email') }}</th>
+                        <th>{{ Translate::get('module_users::admin/main.created_at') }}</th>
                         <th class="table-icon-cell table-actions"></th>
                     </tr>
                     </thead>
@@ -63,15 +63,15 @@
                             <td class="table-icon-cell">
                                 <a href="{{ route('admin.users.edit', ['user' => $element->id]) }}"
                                    data-toggle="tooltip" data-placement="left"
-                                   data-original-title="{{ Translate::get('users::admin/main.action_edit') }}"
+                                   data-original-title="{{ Translate::get('module_users::admin/main.action_edit') }}"
                                    class="btn-link btn btn-success-outline btn-sm">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a href="{{ route('admin.users.delete', ['user' => $element->id]) }}"
                                    data-toggle="tooltip" data-placement="left"
-                                   data-original-title="{{ Translate::get('module_pages::admin/main.list.action_delete') }}"
+                                   data-original-title="{{ Translate::get('module_module_pages::admin/main.list.action_delete') }}"
                                    class="btn-link btn btn-success-outline btn-sm"
-                                   data-delete="{{ Translate::get('users::admin/main.action_delete_confirm') }}">
+                                   data-delete="{{ Translate::get('module_users::admin/main.action_delete_confirm') }}">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

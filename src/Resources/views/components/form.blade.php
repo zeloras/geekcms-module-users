@@ -68,7 +68,7 @@
                                                @endif class="user-permissions__input"
                                                name="user_permission[{{$line['name']}}]" value="{{$line['name']}}"
                                                id="{{$module}}_{{$line['name']}}">
-                                        <label for="{{$module}}_{{$line['name']}}">{{Translate::get(strtolower($module).'::'.$line['i18n_name'])}}</label>
+                                        <label for="{{$module}}_{{$line['name']}}">{{Translate::get('module_' . strtolower($module).'::'.$line['i18n_name'])}}</label>
                                     </div>
                                 @endforeach
                             </div>

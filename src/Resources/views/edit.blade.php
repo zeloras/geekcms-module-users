@@ -1,13 +1,13 @@
 @extends('admin.layouts.main')
 
-@section('title',  Translate::get('users::admin/main.action_edit') )
+@section('title',  Translate::get('module_users::admin/main.action_edit') )
 
 @section('content')
     <section class="box-typical">
         <header class="box-typical-header">
             <div class="tbl-row">
                 <div class="tbl-cell tbl-cell-title border-bottom">
-                    <h3>{{ Translate::get('users::admin/main.action_edit') }}</h3>
+                    <h3>{{ Translate::get('module_users::admin/main.action_edit') }}</h3>
                 </div>
             </div>
         </header>
