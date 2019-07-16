@@ -13,7 +13,8 @@
     "src/loader.php"
   ],
   "requires": [
-    "GeekCms\\Users"
+    "GeekCms\\PackagesManager",
+    "GeekCms\\Translates"
   ],
   "access_permissions": [
     {
